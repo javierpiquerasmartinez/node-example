@@ -21,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/javierpiquerasmartinez/node-example/issues"
   },
-  "homepage": "https://github.com/javierpiquerasmartinez/node-example#readme"
+  "homepage": "https://github.com/javierpiquerasmartinez/node-example#readme",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends":"standard"
+  }
 }
