@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-basics",
+  "version": "1.0.0",
+  "description": "A projectspace containing the principles of NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierpiquerasmartinez/node-example.git"
+  },
+  "keywords": [
+    "training",
+    "node",
+    "js",
+    "npm"
+  ],
+  "author": "Javier Piqueras Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javierpiquerasmartinez/node-example/issues"
+  },
+  "homepage": "https://github.com/javierpiquerasmartinez/node-example#readme"
+}
