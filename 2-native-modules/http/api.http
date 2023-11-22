@@ -1,0 +1,22 @@
+GET http://localhost:3000/pokemon/seviper
+
+### New request
+POST http://localhost:3000/pokemon/seviper
+Content-Type: application/json
+
+{
+    "name": "Seviper",
+    "type": "pokemon",
+    "type": "pokemon",
+    "era": "pokemon",
+    "tydpe": "pokemon",
+    "tyaspe": "pokemon",
+    "tyasdpe": "pokemon",
+    "tydpe": "pokemon",
+    "typasde": "pokemon",
+    "tydaspe": "pokemon",
+    "tyafasdfpe": "pokemon",
+    "tyaspe": "pokemon",
+    "typasdase": "pokemon",
+    "tyasdasdasddpe": "pokemon"
+}
