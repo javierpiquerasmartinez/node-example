@@ -26,3 +26,6 @@ Content-Type: application/json
 {
     "year": 2009
 }
+
+### DELETE a movie
+DELETE http://localhost:3000/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
