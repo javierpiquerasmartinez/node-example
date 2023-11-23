@@ -16,6 +16,5 @@ Content-Type: application/json
     "year": 1975,
     "director": "Francis Ford Copola",
     "duration": 120,
-    "poster": "",
     "genre": ["Crime", "Drama"]
 }

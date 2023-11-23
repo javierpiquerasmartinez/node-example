@@ -1,6 +1,7 @@
 const express = require('express')
 const crypto = require('node:crypto')
 const movies = require('./movies.json')
+const { validateMovie } = require('./schemas/movies')
 
 const app = express()
 
@@ -26,14 +27,15 @@ app.get('/movies', (req, res) => {
 })
 
 app.post('/movies', (req, res) => {
-  console.log(req.body)
+  const result = validateMovie(req.body)
+  if (result.error) {
+    return res.status(400).send(result.error.message)
+  }
   const newMovie = {
     id: crypto.randomUUID(),
-    ...req.body
+    ...result.data
   }
-
   movies.push(newMovie)
-
   res.status(201).json(newMovie)
 })
 
