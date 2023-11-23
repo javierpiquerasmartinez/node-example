@@ -1,13 +1,19 @@
 const express = require('express')
 const crypto = require('node:crypto')
 const movies = require('./movies.json')
-const { validateMovie } = require('./schemas/movies')
+const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
 const app = express()
 
 app.disable('x-powered-by')
 
 app.use(express.json())
+// app.use(cors()) --> Middleware that solves CORS problem by setting '*' to all
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
 
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -44,6 +50,22 @@ app.get('/movies/:id', (req, res) => {
   const movie = movies.find(movie => movie.id === id)
   if (movie) return res.json(movie)
   else res.status(404).send('<h1>Resource not found</h4>')
+})
+
+app.patch('/movies/:id', (req, res) => {
+  const result = validatePartialMovie(req.body)
+  if (!result.success) {
+    return res.status(400).send(result.error.message)
+  }
+  const { id } = req.params
+  const movieIndex = movies.findIndex(movie => movie.id === id)
+  if (movieIndex < 0) return res.status(404).send('Resource not found')
+  const movieUpdated = {
+    ...movies[movieIndex],
+    ...result.data
+  }
+  movies[movieIndex] = movieUpdated
+  res.json(movieUpdated)
 })
 
 const PORT = process.env.port ?? 3000
